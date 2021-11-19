@@ -1,18 +1,33 @@
-export const UserCard = () => {
+import styled from "styled-components";
+
+export const UserCard = (props) => {
+  const { user } = props;
   return (
     <div>
-      <img alt="プロフィール" />
-      <p>名前</p>
-      <dl>
+      <img height={160} width={160} src={user.image} alt={user.name} />
+      <p>{user.name}</p>
+      <SDl>
         <dt>メール</dt>
-        <dd>dddd@ddd.com</dd>
+        <dd>{user.email}</dd>
         <dt>テル</dt>
-        <dd>000-8888-999</dd>
+        <dd>{user.phone}</dd>
         <dt>会社名</dt>
-        <dd>あああああ会社</dd>
+        <dd>{user.company.name}</dd>
         <dt>Web</dt>
-        <dd>aaaaaa.com</dd>
-      </dl>
+        <dd>{user.website}</dd>
+      </SDl>
     </div>
   );
 };
+
+const SDl = styled.dl`
+  text-align: left;
+  margin-bottom: 0px;
+  dt {
+    float: left;
+  }
+  dd {
+    padding-left: 32px;
+    padding-bottom: 8px;
+  }
+`;
