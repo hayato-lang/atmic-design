@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { Card } from "../atoms/card/Card";
+import { UserIconWithName } from "../molcules/UserIconWithName";
 
 export const UserCard = (props) => {
   const { user } = props;
   return (
-    <div>
-      <img height={160} width={160} src={user.image} alt={user.name} />
-      <p>{user.name}</p>
+    <Card>
+      <UserIconWithName name={user.name} image={user.image} />
       <SDl>
         <dt>メール</dt>
         <dd>{user.email}</dd>
@@ -16,7 +17,7 @@ export const UserCard = (props) => {
         <dt>Web</dt>
         <dd>{user.website}</dd>
       </SDl>
-    </div>
+    </Card>
   );
 };
 
@@ -29,5 +30,6 @@ const SDl = styled.dl`
   dd {
     padding-left: 32px;
     padding-bottom: 8px;
+    overflow-wrap: break-word;
   }
 `;
