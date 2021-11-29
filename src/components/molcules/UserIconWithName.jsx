@@ -1,11 +1,22 @@
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../../providers/UserProvider";
 
 export const UserIconWithName = (props) => {
   const { name, image } = props;
+  const { userInfo } = useContext(UserContext);
+  const isAdmin = userInfo ? userInfo.isAdmin : false;
   return (
     <SContainer>
-      <SImage height={160} width={160} src={image} alt={name} />
+      <SImage
+        height={160}
+        width={160}
+        src={image}
+        alt={name}
+        isAdmin={isAdmin}
+      />
       <SName>{name}</SName>
+      {isAdmin && <SEdit>編集</SEdit>}
     </SContainer>
   );
 };
@@ -23,4 +34,10 @@ const SName = styled.p`
   margin: 0;
   font-size: 18px;
   color: #40514e;
+`;
+
+const SEdit = styled.span`
+  text-decoration: underline;
+  cursor: pointer;
+  color: #aaa;
 `;

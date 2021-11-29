@@ -1,7 +1,7 @@
 import { Footer } from "../atoms/layout/Footer";
 import { Header } from "../atoms/layout/Header";
 
-export function DefaultLayout(props) {
+export const DefaultLayout = (props) => {
   const { children } = props;
   return (
     <>
@@ -10,4 +10,4 @@ export function DefaultLayout(props) {
       <Footer />
     </>
   );
-}
+};

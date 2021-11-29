@@ -1,16 +1,22 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Top } from "../components/page/Top";
 import { Users } from "../components/page/Users";
+import { DefaultLayout } from "../components/templates/DefaultLayout";
+import { HeaderOnly } from "../components/templates/HeaderOnly";
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Top />
+          <DefaultLayout>
+            <Top />
+          </DefaultLayout>
         </Route>
         <Route path="/users">
-          <Users />
+          <HeaderOnly>
+            <Users />
+          </HeaderOnly>
         </Route>
       </Switch>
     </BrowserRouter>
